@@ -3,13 +3,13 @@ import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const [newTask, seNewTask] = useState("");
+  const [newTask, setNewTask] = useState("");
 
   useEffect(() => {
     fetch("api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
-  });
+  }, []);
 
   const addTask = () => {
     fetch("api/tasks", {

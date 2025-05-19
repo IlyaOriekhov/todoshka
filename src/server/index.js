@@ -22,8 +22,12 @@ let tasks = [
   },
 ];
 
-app.get("/", (req, res) => {
-  res.json(tasks);
+// app.get("/", (req, res) => {
+//   res.status(200).json(tasks);
+// });
+
+app.get("/tasks", (req, res) => {
+  res.status(200).json(tasks);
 });
 
 app.post("/tasks", (req, res) => {
@@ -46,3 +50,5 @@ app.delete("/tasks/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+export { app };
