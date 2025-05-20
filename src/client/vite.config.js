@@ -8,6 +8,9 @@ export default defineConfig({
     sourcemap: true,
   },
   server: {
+    headers: {
+      "Content-Type": "text/javascript",
+    },
     proxy: {
       "/api": {
         target: "http://localhost:3000",
