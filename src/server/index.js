@@ -20,6 +20,14 @@ let tasks = [
     id: 3,
     text: "Go to the gym",
   },
+  {
+    id: 4,
+    text: "Watch the movie",
+  },
+  {
+    id: 5,
+    text: "Clear ur mind",
+  },
 ];
 
 // app.get("/", (req, res) => {
@@ -42,9 +50,15 @@ app.post("/tasks", (req, res) => {
 
 app.delete("/tasks/:id", (req, res) => {
   const taskId = parseInt(req.params.id);
+  const initialLength = tasks.length;
+
   tasks = tasks.filter((task) => task.id !== taskId);
 
-  res.status(200).json({ message: "Task deleted" });
+  if (task.length < initialLength) {
+    res.status(200).json({ message: "Task deleted" });
+  } else {
+    res.status(404).json({ message: "Task not found" });
+  }
 });
 
 app.listen(PORT, () => {
