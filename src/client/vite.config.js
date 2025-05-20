@@ -18,5 +18,10 @@ export default defineConfig({
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
   },
+
+  root: "./src/client",
 });
