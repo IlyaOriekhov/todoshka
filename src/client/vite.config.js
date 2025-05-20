@@ -22,6 +22,4 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
-
-  root: "./src/client",
 });
